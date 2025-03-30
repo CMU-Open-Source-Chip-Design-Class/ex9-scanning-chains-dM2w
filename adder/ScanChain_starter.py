@@ -1,13 +1,15 @@
 import copy
 import cocotb
 from cocotb.triggers import Timer
+from cocotb.triggers import FallingEdge
+from hwtypes import BitVector
 
 
 # Make sure to set FILE_NAME
 # to the filepath of the .log
 # file you are working with
 CHAIN_LENGTH = -1
-FILE_NAME    = "adder/adder.log"
+FILE_NAME    = "adder.sv"
 
 
 
@@ -145,15 +147,9 @@ async def input_chain_single(dut, bit, ff_index):
     # TODO: YOUR CODE HERE 
     ######################
     dut.scan_en.value = 1
-    for i in range(ff_index + 1): #exclusive in python here
-        if(i==0):
-            dut.scan_in.value = bit
-            await step_clock(dut)
-        else:
-            dut.scan_in.value = 0
-            await step_clock(dut)
-    
-    dut.scan_en.value = 0
+    for _ in range(ff_index + 1): #exclusive in python here
+        dut.scan_in.value = bit
+        await step_clock(dut)
     
 #-------------------------------------------------------------------
 
@@ -166,22 +162,19 @@ async def input_chain_single(dut, bit, ff_index):
         
 async def input_chain(dut, bit_list, ff_index):
 
+    ######################
+    # TODO: YOUR CODE HERE 
+    #####################
     dut.scan_en.value = 1
 
     for bit in reversed(bit_list):  # reverse the list to maintain correct order
         dut.scan_in.value = bit
-        # print(bit)
         await step_clock(dut)
     
 
     for _ in range(ff_index):
         dut.scan_in.value = 0 
         await step_clock(dut)
-    
-    dut.scan_en.value = 0
-
-
-
 
 
 #-----------------------------------------------
@@ -194,12 +187,8 @@ async def output_chain_single(dut, ff_index):
     ######################
     # TODO: YOUR CODE HERE 
     ######################
-    await step_clock(dut)
-    dut.scan_en.value = 1
-    await step_clock(dut)
 
-    for _ in range(CHAIN_LENGTH - ff_index-1): 
-        dut.scan_in.value = 0
+    for _ in range(CHAIN_LENGTH - ff_index): 
         await step_clock(dut)
     return dut.scan_out.value      
 
@@ -215,26 +204,16 @@ async def output_chain(dut, ff_index, output_length):
     ######################
     # TODO: YOUR CODE HERE 
     ######################
-    global CHAIN_LENGTH
-    dut.scan_en.value = 1
+
     output_bits = []
-    for _ in range(CHAIN_LENGTH - ff_index - output_length ):  # aligning to correct position
-        dut.scan_in.value = 0
+    for _ in range(CHAIN_LENGTH - ff_index):  # Aligning to correct position
         await step_clock(dut)
     
-    for _ in range(output_length):  # extracting required bits
+    for _ in range(output_length):  # Extracting required bits
         output_bits.append(dut.scan_out.value)
-        dut.scan_in.value = 0
         await step_clock(dut)
-
-    print(f"output_chain: {list(output_bits)}")
-    dut.scan_en.value = 0
-    result = list(reversed(list(output_bits)))
-    return result
-
-
-
-
+    
+    return output_bits
 
 #-----------------------------------------------
 
@@ -243,40 +222,37 @@ async def output_chain(dut, ff_index, output_length):
 @cocotb.test()
 async def test(dut):
     global CHAIN_LENGTH
-    global FILE_NAME    # Make sure to edit this guy
-                        # at the top of the file
-    
-    # Setup the scan chain object
+    global FILE_NAME  # Make sure to edit this guy
+                      # Setup the scan chain object
     chain = setup_chain(FILE_NAME)
-    CHAIN_LENGTH = chain.chain_length
     
+    tester = fault.Tester(dut, dut.CLK)
     
     test_cases = [
-        (0b1011, 0b0100),  # 11 + 4 = 15
-        (0b0011, 0b0011),  # 3 + 3 = 6
-        (0b1111, 0b0001),  # 15 + 1 = 16 (carry case)
-        (0b0000, 0b0000),  # 0 + 0 = 0 (edge case)
-        (0b0110, 0b1001)   # 6 + 9 = 15
+        (1, 2),  # 1 + 2 = 3
+        (3, 5),  # 3 + 5 = 8
+        (7, 9),  # 7 + 9 = 16
+        (15, 1),  # 15 + 1 = 16 (carry)
     ]
+    
+    for a_in, b_in in test_cases:
+        # Use input_chain to shift in values into the scan chain
+        scan_in = (b_in << 4) | a_in  # 4-bit inputs
+        bit_list = [int(x) for x in f"{scan_in:08b}"]  # convert scan_in to a list of bits
+        
+        # Shift in 8-bit scan_in value using input_chain
+        await input_chain(dut, bit_list, 8)  # Shift in 8 bits
 
-    for first_input, second_input in test_cases:
-        expected_result = first_input + second_input  
-
-        scan_bits = []
-        for i in range(4):
-            scan_bits.append((second_input >> i) & 1)
-        for i in range(4):
-            scan_bits.append((first_input >> i) & 1)
-
-        # values into scan chain
-        await input_chain(dut, scan_bits, ff_index=5)
-
+        # disable scan mode and perform addition
         dut.scan_en.value = 0
-        await step_clock(dut)
+        await FallingEdge(dut.CLK)
 
-        # output
-        output_bits = await output_chain(dut, ff_index=0, output_length=5)
-        computed_sum = sum((output_bits[i] << i) for i in range(5))
+        # Extract result via output_chain
+        dut.scan_en.value = 1
+        result_bits = await output_chain(dut, 0, 5)  # Extract 5 bits for result (carry possible)
+        
+        # Convert the result bits to a number
+        result = int("".join(map(str, result_bits)), 2)
 
-        # check result
-        assert computed_sum == expected_result, f"Test failed: {first_input} + {second_input} = {computed_sum}, expected {expected_result}"
+        expected = a_in + b_in
+        assert result == expected, f"Test failed: {a_in} + {b_in} = {result}, expected {expected}"
