@@ -15,8 +15,6 @@ VL_ATTR_COLD void Vtop___024root___eval_initial(Vtop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_initial\n"); );
-    // Body
-    vlSelf->__Vtrigprevexpr___TOP__clk__0 = vlSelf->clk;
 }
 
 VL_ATTR_COLD void Vtop___024root___eval_final(Vtop___024root* vlSelf) {
@@ -46,7 +44,7 @@ VL_ATTR_COLD void Vtop___024root___eval_settle(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__stl(vlSelf);
 #endif
-            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/hidden_fsm/hidden_fsm_out.sv", 5, "", "Settle region did not converge.");
+            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault5.sv", 3, "", "Settle region did not converge.");
         }
         __VstlIterCount = ((IData)(1U) + __VstlIterCount);
         __VstlContinue = 0U;
@@ -125,9 +123,6 @@ VL_ATTR_COLD void Vtop___024root___dump_triggers__act(Vtop___024root* vlSelf) {
     if ((1U & (~ (IData)(vlSelf->__VactTriggered.any())))) {
         VL_DBG_MSGF("         No triggers active\n");
     }
-    if ((1ULL & vlSelf->__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 0 is active: @(posedge clk)\n");
-    }
 }
 #endif  // VL_DEBUG
 
@@ -140,9 +135,6 @@ VL_ATTR_COLD void Vtop___024root___dump_triggers__nba(Vtop___024root* vlSelf) {
     if ((1U & (~ (IData)(vlSelf->__VnbaTriggered.any())))) {
         VL_DBG_MSGF("         No triggers active\n");
     }
-    if ((1ULL & vlSelf->__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 0 is active: @(posedge clk)\n");
-    }
 }
 #endif  // VL_DEBUG
 
@@ -151,43 +143,14 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___ctor_var_reset\n"); );
     // Body
-    vlSelf->clk = VL_RAND_RESET_I(1);
-    vlSelf->data_avail = VL_RAND_RESET_I(1);
-    vlSelf->buf_en = VL_RAND_RESET_I(1);
-    vlSelf->out_sel = VL_RAND_RESET_I(2);
-    vlSelf->out_writing = VL_RAND_RESET_I(1);
-    vlSelf->scan_in = VL_RAND_RESET_I(1);
-    vlSelf->scan_en = VL_RAND_RESET_I(1);
-    vlSelf->scan_out = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__clk = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__data_avail = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__buf_en = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__out_sel = VL_RAND_RESET_I(2);
-    vlSelf->hidden_fsm__DOT__out_writing = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__scan_in = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__scan_en = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__scan_out = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___00_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___01_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___02_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___03_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___04_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___05_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___06_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___07_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___08_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___09_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___10_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___11_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___12_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___13_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___14_ = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT___the_state = VL_RAND_RESET_I(3);
-    vlSelf->hidden_fsm__DOT__cur_state__05b0__05d = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__cur_state__05b1__05d = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__cur_state__05b2__05d = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__nstate__05b0__05d = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__nstate__05b1__05d = VL_RAND_RESET_I(1);
-    vlSelf->hidden_fsm__DOT__nstate__05b2__05d = VL_RAND_RESET_I(1);
-    vlSelf->__Vtrigprevexpr___TOP__clk__0 = VL_RAND_RESET_I(1);
+    vlSelf->a = VL_RAND_RESET_I(1);
+    vlSelf->b = VL_RAND_RESET_I(1);
+    vlSelf->c = VL_RAND_RESET_I(1);
+    vlSelf->d = VL_RAND_RESET_I(1);
+    vlSelf->x = VL_RAND_RESET_I(1);
+    vlSelf->fault__DOT__a = VL_RAND_RESET_I(1);
+    vlSelf->fault__DOT__b = VL_RAND_RESET_I(1);
+    vlSelf->fault__DOT__c = VL_RAND_RESET_I(1);
+    vlSelf->fault__DOT__d = VL_RAND_RESET_I(1);
+    vlSelf->fault__DOT__x = VL_RAND_RESET_I(1);
 }

@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1743292870" />
-    <testcase name="test" classname="ScanChain_starter" file="/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/ScanChain_starter.py" lineno="245" time="0.02711653709411621" sim_time_ns="2700.001" ratio_time="99570.27295295204" />
+    <property name="random_seed" value="1743298085" />
+    <testcase name="test" classname="ScanChain_starter" file="/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/ScanChain_starter.py" lineno="287" time="0.01712632179260254" sim_time_ns="1817.001" ratio_time="106094.05930845154" />
   </testsuite>
 </testsuites>

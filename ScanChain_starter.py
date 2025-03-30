@@ -7,7 +7,7 @@ from cocotb.triggers import Timer
 # to the filepath of the .log
 # file you are working with
 CHAIN_LENGTH = -1
-FILE_NAME    = "adder/adder.log"
+FILE_NAME    = "hidden_fsm/hidden_fsm.log"
 
 
 
@@ -179,6 +179,7 @@ async def input_chain(dut, bit_list, ff_index):
         await step_clock(dut)
     
     dut.scan_en.value = 0
+    # await step_clock(dut)
 
 
 
@@ -229,6 +230,7 @@ async def output_chain(dut, ff_index, output_length):
 
     print(f"output_chain: {list(output_bits)}")
     dut.scan_en.value = 0
+    # await step_clock(dut)
     result = list(reversed(list(output_bits)))
     return result
 
@@ -240,43 +242,103 @@ async def output_chain(dut, ff_index, output_length):
 
 # Your main testbench function
 
+#Test for adder
+# @cocotb.test()
+# async def test(dut):
+#     global CHAIN_LENGTH
+#     global FILE_NAME    # Make sure to edit this guy
+#                         # at the top of the file
+    
+#     # Setup the scan chain object
+#     chain = setup_chain(FILE_NAME)
+#     CHAIN_LENGTH = chain.chain_length
+    
+    
+#     test_cases = [
+#         (0b1011, 0b0100),  # 11 + 4 = 15
+#         (0b0011, 0b0011),  # 3 + 3 = 6
+#         (0b1111, 0b0001),  # 15 + 1 = 16 (carry case)
+#         (0b0000, 0b0000),  # 0 + 0 = 0 (edge case)
+#         (0b0110, 0b1001)   # 6 + 9 = 15
+#     ]
+
+#     for first_input, second_input in test_cases:
+#         expected_result = first_input + second_input  
+
+#         scan_bits = []
+#         for i in range(4):
+#             scan_bits.append((second_input >> i) & 1)
+#         for i in range(4):
+#             scan_bits.append((first_input >> i) & 1)
+
+#         # values into scan chain
+#         await input_chain(dut, scan_bits, ff_index=5)
+
+#         dut.scan_en.value = 0
+#         await step_clock(dut)
+
+#         # output
+#         output_bits = await output_chain(dut, ff_index=0, output_length=5)
+#         computed_sum = sum((output_bits[i] << i) for i in range(5))
+
+#         # check result
+#         assert computed_sum == expected_result, f"Test failed: {first_input} + {second_input} = {computed_sum}, expected {expected_result}"
+
+# Test for FSM
 @cocotb.test()
 async def test(dut):
     global CHAIN_LENGTH
-    global FILE_NAME    # Make sure to edit this guy
-                        # at the top of the file
+    global FILE_NAME  
     
     # Setup the scan chain object
     chain = setup_chain(FILE_NAME)
     CHAIN_LENGTH = chain.chain_length
     
-    
-    test_cases = [
-        (0b1011, 0b0100),  # 11 + 4 = 15
-        (0b0011, 0b0011),  # 3 + 3 = 6
-        (0b1111, 0b0001),  # 15 + 1 = 16 (carry case)
-        (0b0000, 0b0000),  # 0 + 0 = 0 (edge case)
-        (0b0110, 0b1001)   # 6 + 9 = 15
-    ]
+    dut.clk.value = 0
+    dut.scan_en.value = 0
+    dut.scan_in.value = 0
+    dut.data_avail.value = 0
+    await Timer(1, units='ns')
 
-    for first_input, second_input in test_cases:
-        expected_result = first_input + second_input  
+    # dictionary to store state transitions and outputs
+    fsm_table = {}
 
-        scan_bits = []
-        for i in range(4):
-            scan_bits.append((second_input >> i) & 1)
-        for i in range(4):
-            scan_bits.append((first_input >> i) & 1)
+    # loop all possible states (3-bit = 8 states)
+    for state in range(8):
+        # send the state through scan chain
+        state_bits = [(state >> i) & 1 for i in range(3)]
+        await input_chain(dut, state_bits, ff_index=0)
+        
+        await Timer(1, units='ns')  # Small delay after disabling scan
+        
+        #use both possible input values
+        for data_avail in [0, 1]:
+            dut.data_avail.value = data_avail
+            await Timer(1, units='ns')  # Small delay after input change
+            
+            # capture outputs BEFORE clock edge (Moore machine)
+            outputs = (
+                int(dut.buf_en.value),
+                int(dut.out_sel.value),
+                int(dut.out_writing.value)
+            )
+            await step_clock(dut)
+            
+            dut.scan_en.value = 1
+            await Timer(1, units='ns')  # Small delay after enabling scan
+            new_state_bits = await output_chain(dut, ff_index=0, output_length=3)
+            new_state = int("".join(map(str, new_state_bits)), 2)
+            dut.scan_en.value = 0
+            
+            fsm_table[(state, data_avail)] = (new_state, outputs)
+            
+            # Reset
+            dut.data_avail.value = 0
+            await Timer(1, units='ns')
 
-        # values into scan chain
-        await input_chain(dut, scan_bits, ff_index=5)
-
-        dut.scan_en.value = 0
-        await step_clock(dut)
-
-        # output
-        output_bits = await output_chain(dut, ff_index=0, output_length=5)
-        computed_sum = sum((output_bits[i] << i) for i in range(5))
-
-        # check result
-        assert computed_sum == expected_result, f"Test failed: {first_input} + {second_input} = {computed_sum}, expected {expected_result}"
+    #the FSM transition table
+    print("\nFSM Transition Table:")
+    print("Current State | Data Available | Next State | buf_en | out_sel | out_writing")
+    print("-------------------------------------------------------------------------------")
+    for (state, data_avail), (next_state, (be, os, ow)) in sorted(fsm_table.items()):
+        print(f"{state:13} | {data_avail:14} | {next_state:10} | {be:6} | {os:7} | {ow:10}")

@@ -10,91 +10,117 @@ VL_INLINE_OPT void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) 
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___ico_sequent__TOP__0\n"); );
     // Init
-    CData/*3:0*/ adder__DOT____VdfgTmp_h396f738f__0;
-    adder__DOT____VdfgTmp_h396f738f__0 = 0;
-    CData/*3:0*/ adder__DOT____VdfgTmp_hc2345a7c__0;
-    adder__DOT____VdfgTmp_hc2345a7c__0 = 0;
-    CData/*2:0*/ adder__DOT____VdfgTmp_h558af634__0;
-    adder__DOT____VdfgTmp_h558af634__0 = 0;
-    CData/*2:0*/ adder__DOT____VdfgTmp_he0986f04__0;
-    adder__DOT____VdfgTmp_he0986f04__0 = 0;
-    CData/*1:0*/ adder__DOT____VdfgTmp_h93ebafa5__0;
-    adder__DOT____VdfgTmp_h93ebafa5__0 = 0;
-    CData/*1:0*/ adder__DOT____VdfgTmp_hca6c6ab9__0;
-    adder__DOT____VdfgTmp_hca6c6ab9__0 = 0;
+    CData/*0:0*/ __Vfunc_hidden_fsm__DOT___31___0__Vfuncout;
+    __Vfunc_hidden_fsm__DOT___31___0__Vfuncout = 0;
+    CData/*1:0*/ __Vfunc_hidden_fsm__DOT___31___0__b;
+    __Vfunc_hidden_fsm__DOT___31___0__b = 0;
+    CData/*1:0*/ __Vfunc_hidden_fsm__DOT___31___0__s;
+    __Vfunc_hidden_fsm__DOT___31___0__s = 0;
+    CData/*1:0*/ __Vfunc_hidden_fsm__DOT___35___1__Vfuncout;
+    __Vfunc_hidden_fsm__DOT___35___1__Vfuncout = 0;
+    CData/*2:0*/ __Vfunc_hidden_fsm__DOT___35___1__s;
+    __Vfunc_hidden_fsm__DOT___35___1__s = 0;
     // Body
-    vlSelf->adder__DOT__a_in = vlSelf->a_in;
-    vlSelf->adder__DOT__b_in = vlSelf->b_in;
-    vlSelf->adder__DOT__clk = vlSelf->clk;
-    vlSelf->adder__DOT__scan_in = vlSelf->scan_in;
-    vlSelf->adder__DOT__scan_en = vlSelf->scan_en;
-    vlSelf->x_out = vlSelf->adder__DOT__x_out;
-    vlSelf->scan_out = vlSelf->adder__DOT__scan_out;
-    vlSelf->adder__DOT___00_ = (1U & ((IData)(vlSelf->adder__DOT__a_reg__05b0__05d) 
-                                      + (IData)(vlSelf->adder__DOT__b_reg__05b0__05d)));
-    adder__DOT____VdfgTmp_h93ebafa5__0 = (((IData)(vlSelf->adder__DOT__a_reg__05b1__05d) 
-                                           << 1U) | (IData)(vlSelf->adder__DOT__a_reg__05b0__05d));
-    adder__DOT____VdfgTmp_hca6c6ab9__0 = (((IData)(vlSelf->adder__DOT__b_reg__05b1__05d) 
-                                           << 1U) | (IData)(vlSelf->adder__DOT__b_reg__05b0__05d));
-    vlSelf->adder__DOT__b_reg__05b3__05d = vlSelf->scan_out;
-    adder__DOT____VdfgTmp_h558af634__0 = (((IData)(vlSelf->adder__DOT__a_reg__05b2__05d) 
-                                           << 2U) | (IData)(adder__DOT____VdfgTmp_h93ebafa5__0));
-    vlSelf->adder__DOT___01_ = (1U & (((IData)(adder__DOT____VdfgTmp_h93ebafa5__0) 
-                                       + (IData)(adder__DOT____VdfgTmp_hca6c6ab9__0)) 
-                                      >> 1U));
-    adder__DOT____VdfgTmp_he0986f04__0 = (((IData)(vlSelf->adder__DOT__b_reg__05b2__05d) 
-                                           << 2U) | (IData)(adder__DOT____VdfgTmp_hca6c6ab9__0));
-    adder__DOT____VdfgTmp_h396f738f__0 = (((IData)(vlSelf->adder__DOT__a_reg__05b3__05d) 
-                                           << 3U) | (IData)(adder__DOT____VdfgTmp_h558af634__0));
-    vlSelf->adder__DOT___02_ = (1U & (((IData)(adder__DOT____VdfgTmp_h558af634__0) 
-                                       + (IData)(adder__DOT____VdfgTmp_he0986f04__0)) 
-                                      >> 2U));
-    adder__DOT____VdfgTmp_hc2345a7c__0 = (((IData)(vlSelf->adder__DOT__scan_out) 
-                                           << 3U) | (IData)(adder__DOT____VdfgTmp_he0986f04__0));
-    vlSelf->adder__DOT___04_ = (1U & (((IData)(adder__DOT____VdfgTmp_h396f738f__0) 
-                                       + (IData)(adder__DOT____VdfgTmp_hc2345a7c__0)) 
-                                      >> 4U));
-    vlSelf->adder__DOT___03_ = (1U & (((IData)(adder__DOT____VdfgTmp_h396f738f__0) 
-                                       + (IData)(adder__DOT____VdfgTmp_hc2345a7c__0)) 
-                                      >> 3U));
+    vlSelf->hidden_fsm__DOT__clk = vlSelf->clk;
+    vlSelf->hidden_fsm__DOT__data_avail = vlSelf->data_avail;
+    vlSelf->hidden_fsm__DOT__scan_in = vlSelf->scan_in;
+    vlSelf->hidden_fsm__DOT__scan_en = vlSelf->scan_en;
+    vlSelf->hidden_fsm__DOT__cur_state__05b1__05d = 
+        (1U & ((IData)(vlSelf->hidden_fsm__DOT___the_state) 
+               >> 1U));
+    vlSelf->hidden_fsm__DOT__cur_state__05b0__05d = 
+        (1U & (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->scan_out = (1U & ((IData)(vlSelf->hidden_fsm__DOT___the_state) 
+                              >> 2U));
+    vlSelf->hidden_fsm__DOT___10_ = (3U == (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->hidden_fsm__DOT___11_ = (1U & (~ (IData)(
+                                                     (0U 
+                                                      != (IData)(vlSelf->hidden_fsm__DOT___the_state)))));
+    vlSelf->hidden_fsm__DOT___14_ = (1U == (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->hidden_fsm__DOT___12_ = (4U == (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->hidden_fsm__DOT___13_ = (2U == (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->hidden_fsm__DOT__scan_out = vlSelf->scan_out;
+    vlSelf->hidden_fsm__DOT__cur_state__05b2__05d = vlSelf->scan_out;
+    vlSelf->hidden_fsm__DOT___04_ = (2U != (((IData)(vlSelf->hidden_fsm__DOT___11_) 
+                                             << 1U) 
+                                            | (IData)(vlSelf->data_avail)));
+    vlSelf->buf_en = ((IData)(vlSelf->hidden_fsm__DOT___11_) 
+                      | (IData)(vlSelf->hidden_fsm__DOT___10_));
+    __Vfunc_hidden_fsm__DOT___35___1__s = (((IData)(vlSelf->hidden_fsm__DOT___14_) 
+                                            << 2U) 
+                                           | (((IData)(vlSelf->hidden_fsm__DOT___13_) 
+                                               << 1U) 
+                                              | (IData)(vlSelf->hidden_fsm__DOT___12_)));
+    __Vfunc_hidden_fsm__DOT___35___1__Vfuncout = ((1U 
+                                                   == 
+                                                   (1U 
+                                                    & (IData)(__Vfunc_hidden_fsm__DOT___35___1__s)))
+                                                   ? 1U
+                                                   : 
+                                                  ((2U 
+                                                    == 
+                                                    (2U 
+                                                     & (IData)(__Vfunc_hidden_fsm__DOT___35___1__s)))
+                                                    ? 3U
+                                                    : 
+                                                   ((4U 
+                                                     == 
+                                                     (4U 
+                                                      & (IData)(__Vfunc_hidden_fsm__DOT___35___1__s)))
+                                                     ? 2U
+                                                     : 0U)));
+    vlSelf->hidden_fsm__DOT__out_sel = __Vfunc_hidden_fsm__DOT___35___1__Vfuncout;
+    vlSelf->hidden_fsm__DOT__nstate__05b0__05d = ((IData)(vlSelf->hidden_fsm__DOT___12_) 
+                                                  | (IData)(vlSelf->hidden_fsm__DOT___13_));
+    vlSelf->hidden_fsm__DOT__nstate__05b1__05d = ((IData)(vlSelf->hidden_fsm__DOT___13_) 
+                                                  | (IData)(vlSelf->hidden_fsm__DOT___14_));
+    vlSelf->hidden_fsm__DOT__buf_en = vlSelf->buf_en;
+    vlSelf->hidden_fsm__DOT___05_ = ((IData)(vlSelf->hidden_fsm__DOT___14_) 
+                                     | ((IData)(vlSelf->hidden_fsm__DOT___13_) 
+                                        | ((IData)(vlSelf->hidden_fsm__DOT___12_) 
+                                           | (IData)(vlSelf->buf_en))));
+    vlSelf->out_sel = vlSelf->hidden_fsm__DOT__out_sel;
+    vlSelf->out_writing = ((IData)(vlSelf->hidden_fsm__DOT___12_) 
+                           | (IData)(vlSelf->hidden_fsm__DOT__nstate__05b1__05d));
+    vlSelf->hidden_fsm__DOT___06_ = ((IData)(vlSelf->hidden_fsm__DOT___04_) 
+                                     & (IData)(vlSelf->hidden_fsm__DOT___05_));
+    vlSelf->hidden_fsm__DOT__out_writing = vlSelf->out_writing;
+    __Vfunc_hidden_fsm__DOT___31___0__s = (((IData)(vlSelf->hidden_fsm__DOT___10_) 
+                                            << 1U) 
+                                           | (IData)(vlSelf->out_writing));
+    __Vfunc_hidden_fsm__DOT___31___0__b = ((IData)(vlSelf->data_avail) 
+                                           << 1U);
+    __Vfunc_hidden_fsm__DOT___31___0__Vfuncout = (1U 
+                                                  & ((1U 
+                                                      == 
+                                                      (1U 
+                                                       & (IData)(__Vfunc_hidden_fsm__DOT___31___0__s)))
+                                                      ? (IData)(__Vfunc_hidden_fsm__DOT___31___0__b)
+                                                      : 
+                                                     ((2U 
+                                                       != 
+                                                       (2U 
+                                                        & (IData)(__Vfunc_hidden_fsm__DOT___31___0__s))) 
+                                                      || (1U 
+                                                          & ((IData)(__Vfunc_hidden_fsm__DOT___31___0__b) 
+                                                             >> 1U)))));
+    vlSelf->hidden_fsm__DOT__nstate__05b2__05d = __Vfunc_hidden_fsm__DOT___31___0__Vfuncout;
+    vlSelf->hidden_fsm__DOT___03_ = ((IData)(vlSelf->hidden_fsm__DOT___06_) 
+                                     | (IData)(vlSelf->scan_en));
+    vlSelf->hidden_fsm__DOT___07_ = ((IData)(vlSelf->hidden_fsm__DOT___06_) 
+                                     & (IData)(vlSelf->hidden_fsm__DOT__nstate__05b0__05d));
+    vlSelf->hidden_fsm__DOT___08_ = ((IData)(vlSelf->hidden_fsm__DOT___06_) 
+                                     & (IData)(vlSelf->hidden_fsm__DOT__nstate__05b1__05d));
+    vlSelf->hidden_fsm__DOT___09_ = ((IData)(vlSelf->hidden_fsm__DOT___06_) 
+                                     & (IData)(vlSelf->hidden_fsm__DOT__nstate__05b2__05d));
     if (vlSelf->scan_en) {
-        vlSelf->adder__DOT___16_ = (1U & ((IData)(vlSelf->adder__DOT__x_out) 
-                                          >> 4U));
-        vlSelf->adder__DOT___15_ = (1U & (IData)(vlSelf->adder__DOT__a_reg__05b0__05d));
-        vlSelf->adder__DOT___14_ = (1U & (IData)(vlSelf->adder__DOT__a_reg__05b1__05d));
-        vlSelf->adder__DOT___13_ = (1U & (IData)(vlSelf->adder__DOT__a_reg__05b2__05d));
-        vlSelf->adder__DOT___12_ = (1U & (IData)(vlSelf->adder__DOT__a_reg__05b3__05d));
-        vlSelf->adder__DOT___11_ = (1U & (IData)(vlSelf->adder__DOT__b_reg__05b0__05d));
-        vlSelf->adder__DOT___10_ = (1U & (IData)(vlSelf->adder__DOT__b_reg__05b1__05d));
-        vlSelf->adder__DOT___05_ = (1U & (IData)(vlSelf->adder__DOT__b_reg__05b2__05d));
-        vlSelf->adder__DOT___09_ = vlSelf->scan_in;
-        vlSelf->adder__DOT___08_ = (1U & (IData)(vlSelf->adder__DOT__x_out));
-        vlSelf->adder__DOT___07_ = (1U & ((IData)(vlSelf->adder__DOT__x_out) 
-                                          >> 1U));
-        vlSelf->adder__DOT___17_ = (1U & ((IData)(vlSelf->adder__DOT__x_out) 
-                                          >> 3U));
-        vlSelf->adder__DOT___06_ = (1U & ((IData)(vlSelf->adder__DOT__x_out) 
-                                          >> 2U));
+        vlSelf->hidden_fsm__DOT___02_ = vlSelf->scan_in;
+        vlSelf->hidden_fsm__DOT___01_ = vlSelf->hidden_fsm__DOT__cur_state__05b0__05d;
+        vlSelf->hidden_fsm__DOT___00_ = vlSelf->hidden_fsm__DOT__cur_state__05b1__05d;
     } else {
-        vlSelf->adder__DOT___16_ = (1U & (IData)(vlSelf->a_in));
-        vlSelf->adder__DOT___15_ = (1U & ((IData)(vlSelf->a_in) 
-                                          >> 1U));
-        vlSelf->adder__DOT___14_ = (1U & ((IData)(vlSelf->a_in) 
-                                          >> 2U));
-        vlSelf->adder__DOT___13_ = (1U & ((IData)(vlSelf->a_in) 
-                                          >> 3U));
-        vlSelf->adder__DOT___12_ = (1U & (IData)(vlSelf->b_in));
-        vlSelf->adder__DOT___11_ = (1U & ((IData)(vlSelf->b_in) 
-                                          >> 1U));
-        vlSelf->adder__DOT___10_ = (1U & ((IData)(vlSelf->b_in) 
-                                          >> 2U));
-        vlSelf->adder__DOT___05_ = (1U & ((IData)(vlSelf->b_in) 
-                                          >> 3U));
-        vlSelf->adder__DOT___09_ = vlSelf->adder__DOT___00_;
-        vlSelf->adder__DOT___08_ = (1U & (IData)(vlSelf->adder__DOT___01_));
-        vlSelf->adder__DOT___07_ = (1U & (IData)(vlSelf->adder__DOT___02_));
-        vlSelf->adder__DOT___17_ = (1U & (IData)(vlSelf->adder__DOT___04_));
-        vlSelf->adder__DOT___06_ = (1U & (IData)(vlSelf->adder__DOT___03_));
+        vlSelf->hidden_fsm__DOT___02_ = vlSelf->hidden_fsm__DOT___07_;
+        vlSelf->hidden_fsm__DOT___01_ = vlSelf->hidden_fsm__DOT___08_;
+        vlSelf->hidden_fsm__DOT___00_ = vlSelf->hidden_fsm__DOT___09_;
     }
 }
 
@@ -136,102 +162,126 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___nba_sequent__TOP__0\n"); );
     // Init
-    CData/*3:0*/ adder__DOT____VdfgTmp_h396f738f__0;
-    adder__DOT____VdfgTmp_h396f738f__0 = 0;
-    CData/*3:0*/ adder__DOT____VdfgTmp_hc2345a7c__0;
-    adder__DOT____VdfgTmp_hc2345a7c__0 = 0;
-    CData/*2:0*/ adder__DOT____VdfgTmp_h558af634__0;
-    adder__DOT____VdfgTmp_h558af634__0 = 0;
-    CData/*2:0*/ adder__DOT____VdfgTmp_he0986f04__0;
-    adder__DOT____VdfgTmp_he0986f04__0 = 0;
-    CData/*1:0*/ adder__DOT____VdfgTmp_h93ebafa5__0;
-    adder__DOT____VdfgTmp_h93ebafa5__0 = 0;
-    CData/*1:0*/ adder__DOT____VdfgTmp_hca6c6ab9__0;
-    adder__DOT____VdfgTmp_hca6c6ab9__0 = 0;
+    CData/*0:0*/ __Vfunc_hidden_fsm__DOT___31___0__Vfuncout;
+    __Vfunc_hidden_fsm__DOT___31___0__Vfuncout = 0;
+    CData/*1:0*/ __Vfunc_hidden_fsm__DOT___31___0__b;
+    __Vfunc_hidden_fsm__DOT___31___0__b = 0;
+    CData/*1:0*/ __Vfunc_hidden_fsm__DOT___31___0__s;
+    __Vfunc_hidden_fsm__DOT___31___0__s = 0;
+    CData/*1:0*/ __Vfunc_hidden_fsm__DOT___35___1__Vfuncout;
+    __Vfunc_hidden_fsm__DOT___35___1__Vfuncout = 0;
+    CData/*2:0*/ __Vfunc_hidden_fsm__DOT___35___1__s;
+    __Vfunc_hidden_fsm__DOT___35___1__s = 0;
     // Body
-    vlSelf->adder__DOT__a_reg__05b3__05d = vlSelf->adder__DOT___13_;
-    vlSelf->adder__DOT__scan_out = vlSelf->adder__DOT___05_;
-    vlSelf->adder__DOT__b_reg__05b2__05d = vlSelf->adder__DOT___10_;
-    vlSelf->adder__DOT__a_reg__05b2__05d = vlSelf->adder__DOT___14_;
-    vlSelf->adder__DOT__x_out = (((IData)(vlSelf->adder__DOT___17_) 
-                                  << 4U) | (((IData)(vlSelf->adder__DOT___06_) 
-                                             << 3U) 
-                                            | (((IData)(vlSelf->adder__DOT___07_) 
-                                                << 2U) 
-                                               | (((IData)(vlSelf->adder__DOT___08_) 
-                                                   << 1U) 
-                                                  | (IData)(vlSelf->adder__DOT___09_)))));
-    vlSelf->adder__DOT__b_reg__05b1__05d = vlSelf->adder__DOT___11_;
-    vlSelf->adder__DOT__a_reg__05b1__05d = vlSelf->adder__DOT___15_;
-    vlSelf->adder__DOT__b_reg__05b0__05d = vlSelf->adder__DOT___12_;
-    vlSelf->adder__DOT__a_reg__05b0__05d = vlSelf->adder__DOT___16_;
-    vlSelf->scan_out = vlSelf->adder__DOT__scan_out;
-    vlSelf->x_out = vlSelf->adder__DOT__x_out;
-    adder__DOT____VdfgTmp_hca6c6ab9__0 = (((IData)(vlSelf->adder__DOT__b_reg__05b1__05d) 
-                                           << 1U) | (IData)(vlSelf->adder__DOT__b_reg__05b0__05d));
-    vlSelf->adder__DOT___00_ = (1U & ((IData)(vlSelf->adder__DOT__a_reg__05b0__05d) 
-                                      + (IData)(vlSelf->adder__DOT__b_reg__05b0__05d)));
-    adder__DOT____VdfgTmp_h93ebafa5__0 = (((IData)(vlSelf->adder__DOT__a_reg__05b1__05d) 
-                                           << 1U) | (IData)(vlSelf->adder__DOT__a_reg__05b0__05d));
-    vlSelf->adder__DOT__b_reg__05b3__05d = vlSelf->scan_out;
-    adder__DOT____VdfgTmp_he0986f04__0 = (((IData)(vlSelf->adder__DOT__b_reg__05b2__05d) 
-                                           << 2U) | (IData)(adder__DOT____VdfgTmp_hca6c6ab9__0));
-    vlSelf->adder__DOT___01_ = (1U & (((IData)(adder__DOT____VdfgTmp_h93ebafa5__0) 
-                                       + (IData)(adder__DOT____VdfgTmp_hca6c6ab9__0)) 
-                                      >> 1U));
-    adder__DOT____VdfgTmp_h558af634__0 = (((IData)(vlSelf->adder__DOT__a_reg__05b2__05d) 
-                                           << 2U) | (IData)(adder__DOT____VdfgTmp_h93ebafa5__0));
-    adder__DOT____VdfgTmp_hc2345a7c__0 = (((IData)(vlSelf->adder__DOT__scan_out) 
-                                           << 3U) | (IData)(adder__DOT____VdfgTmp_he0986f04__0));
-    vlSelf->adder__DOT___02_ = (1U & (((IData)(adder__DOT____VdfgTmp_h558af634__0) 
-                                       + (IData)(adder__DOT____VdfgTmp_he0986f04__0)) 
-                                      >> 2U));
-    adder__DOT____VdfgTmp_h396f738f__0 = (((IData)(vlSelf->adder__DOT__a_reg__05b3__05d) 
-                                           << 3U) | (IData)(adder__DOT____VdfgTmp_h558af634__0));
-    vlSelf->adder__DOT___04_ = (1U & (((IData)(adder__DOT____VdfgTmp_h396f738f__0) 
-                                       + (IData)(adder__DOT____VdfgTmp_hc2345a7c__0)) 
-                                      >> 4U));
-    vlSelf->adder__DOT___03_ = (1U & (((IData)(adder__DOT____VdfgTmp_h396f738f__0) 
-                                       + (IData)(adder__DOT____VdfgTmp_hc2345a7c__0)) 
-                                      >> 3U));
+    if (vlSelf->hidden_fsm__DOT___03_) {
+        vlSelf->hidden_fsm__DOT___the_state = ((6U 
+                                                & (IData)(vlSelf->hidden_fsm__DOT___the_state)) 
+                                               | (IData)(vlSelf->hidden_fsm__DOT___02_));
+        vlSelf->hidden_fsm__DOT___the_state = ((3U 
+                                                & (IData)(vlSelf->hidden_fsm__DOT___the_state)) 
+                                               | ((IData)(vlSelf->hidden_fsm__DOT___00_) 
+                                                  << 2U));
+        vlSelf->hidden_fsm__DOT___the_state = ((5U 
+                                                & (IData)(vlSelf->hidden_fsm__DOT___the_state)) 
+                                               | ((IData)(vlSelf->hidden_fsm__DOT___01_) 
+                                                  << 1U));
+    }
+    vlSelf->hidden_fsm__DOT__cur_state__05b1__05d = 
+        (1U & ((IData)(vlSelf->hidden_fsm__DOT___the_state) 
+               >> 1U));
+    vlSelf->hidden_fsm__DOT__cur_state__05b0__05d = 
+        (1U & (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->scan_out = (1U & ((IData)(vlSelf->hidden_fsm__DOT___the_state) 
+                              >> 2U));
+    vlSelf->hidden_fsm__DOT___10_ = (3U == (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->hidden_fsm__DOT___11_ = (1U & (~ (IData)(
+                                                     (0U 
+                                                      != (IData)(vlSelf->hidden_fsm__DOT___the_state)))));
+    vlSelf->hidden_fsm__DOT___14_ = (1U == (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->hidden_fsm__DOT___12_ = (4U == (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->hidden_fsm__DOT___13_ = (2U == (IData)(vlSelf->hidden_fsm__DOT___the_state));
+    vlSelf->hidden_fsm__DOT__scan_out = vlSelf->scan_out;
+    vlSelf->hidden_fsm__DOT__cur_state__05b2__05d = vlSelf->scan_out;
+    vlSelf->hidden_fsm__DOT___04_ = (2U != (((IData)(vlSelf->hidden_fsm__DOT___11_) 
+                                             << 1U) 
+                                            | (IData)(vlSelf->data_avail)));
+    vlSelf->buf_en = ((IData)(vlSelf->hidden_fsm__DOT___11_) 
+                      | (IData)(vlSelf->hidden_fsm__DOT___10_));
+    __Vfunc_hidden_fsm__DOT___35___1__s = (((IData)(vlSelf->hidden_fsm__DOT___14_) 
+                                            << 2U) 
+                                           | (((IData)(vlSelf->hidden_fsm__DOT___13_) 
+                                               << 1U) 
+                                              | (IData)(vlSelf->hidden_fsm__DOT___12_)));
+    __Vfunc_hidden_fsm__DOT___35___1__Vfuncout = ((1U 
+                                                   == 
+                                                   (1U 
+                                                    & (IData)(__Vfunc_hidden_fsm__DOT___35___1__s)))
+                                                   ? 1U
+                                                   : 
+                                                  ((2U 
+                                                    == 
+                                                    (2U 
+                                                     & (IData)(__Vfunc_hidden_fsm__DOT___35___1__s)))
+                                                    ? 3U
+                                                    : 
+                                                   ((4U 
+                                                     == 
+                                                     (4U 
+                                                      & (IData)(__Vfunc_hidden_fsm__DOT___35___1__s)))
+                                                     ? 2U
+                                                     : 0U)));
+    vlSelf->hidden_fsm__DOT__out_sel = __Vfunc_hidden_fsm__DOT___35___1__Vfuncout;
+    vlSelf->hidden_fsm__DOT__nstate__05b0__05d = ((IData)(vlSelf->hidden_fsm__DOT___12_) 
+                                                  | (IData)(vlSelf->hidden_fsm__DOT___13_));
+    vlSelf->hidden_fsm__DOT__nstate__05b1__05d = ((IData)(vlSelf->hidden_fsm__DOT___13_) 
+                                                  | (IData)(vlSelf->hidden_fsm__DOT___14_));
+    vlSelf->hidden_fsm__DOT__buf_en = vlSelf->buf_en;
+    vlSelf->hidden_fsm__DOT___05_ = ((IData)(vlSelf->hidden_fsm__DOT___14_) 
+                                     | ((IData)(vlSelf->hidden_fsm__DOT___13_) 
+                                        | ((IData)(vlSelf->hidden_fsm__DOT___12_) 
+                                           | (IData)(vlSelf->buf_en))));
+    vlSelf->out_sel = vlSelf->hidden_fsm__DOT__out_sel;
+    vlSelf->out_writing = ((IData)(vlSelf->hidden_fsm__DOT___12_) 
+                           | (IData)(vlSelf->hidden_fsm__DOT__nstate__05b1__05d));
+    vlSelf->hidden_fsm__DOT___06_ = ((IData)(vlSelf->hidden_fsm__DOT___04_) 
+                                     & (IData)(vlSelf->hidden_fsm__DOT___05_));
+    vlSelf->hidden_fsm__DOT__out_writing = vlSelf->out_writing;
+    __Vfunc_hidden_fsm__DOT___31___0__s = (((IData)(vlSelf->hidden_fsm__DOT___10_) 
+                                            << 1U) 
+                                           | (IData)(vlSelf->out_writing));
+    __Vfunc_hidden_fsm__DOT___31___0__b = ((IData)(vlSelf->data_avail) 
+                                           << 1U);
+    __Vfunc_hidden_fsm__DOT___31___0__Vfuncout = (1U 
+                                                  & ((1U 
+                                                      == 
+                                                      (1U 
+                                                       & (IData)(__Vfunc_hidden_fsm__DOT___31___0__s)))
+                                                      ? (IData)(__Vfunc_hidden_fsm__DOT___31___0__b)
+                                                      : 
+                                                     ((2U 
+                                                       != 
+                                                       (2U 
+                                                        & (IData)(__Vfunc_hidden_fsm__DOT___31___0__s))) 
+                                                      || (1U 
+                                                          & ((IData)(__Vfunc_hidden_fsm__DOT___31___0__b) 
+                                                             >> 1U)))));
+    vlSelf->hidden_fsm__DOT__nstate__05b2__05d = __Vfunc_hidden_fsm__DOT___31___0__Vfuncout;
+    vlSelf->hidden_fsm__DOT___03_ = ((IData)(vlSelf->hidden_fsm__DOT___06_) 
+                                     | (IData)(vlSelf->scan_en));
+    vlSelf->hidden_fsm__DOT___07_ = ((IData)(vlSelf->hidden_fsm__DOT___06_) 
+                                     & (IData)(vlSelf->hidden_fsm__DOT__nstate__05b0__05d));
+    vlSelf->hidden_fsm__DOT___08_ = ((IData)(vlSelf->hidden_fsm__DOT___06_) 
+                                     & (IData)(vlSelf->hidden_fsm__DOT__nstate__05b1__05d));
+    vlSelf->hidden_fsm__DOT___09_ = ((IData)(vlSelf->hidden_fsm__DOT___06_) 
+                                     & (IData)(vlSelf->hidden_fsm__DOT__nstate__05b2__05d));
     if (vlSelf->scan_en) {
-        vlSelf->adder__DOT___12_ = (1U & (IData)(vlSelf->adder__DOT__a_reg__05b3__05d));
-        vlSelf->adder__DOT___05_ = (1U & (IData)(vlSelf->adder__DOT__b_reg__05b2__05d));
-        vlSelf->adder__DOT___13_ = (1U & (IData)(vlSelf->adder__DOT__a_reg__05b2__05d));
-        vlSelf->adder__DOT___16_ = (1U & ((IData)(vlSelf->adder__DOT__x_out) 
-                                          >> 4U));
-        vlSelf->adder__DOT___10_ = (1U & (IData)(vlSelf->adder__DOT__b_reg__05b1__05d));
-        vlSelf->adder__DOT___14_ = (1U & (IData)(vlSelf->adder__DOT__a_reg__05b1__05d));
-        vlSelf->adder__DOT___11_ = (1U & (IData)(vlSelf->adder__DOT__b_reg__05b0__05d));
-        vlSelf->adder__DOT___15_ = (1U & (IData)(vlSelf->adder__DOT__a_reg__05b0__05d));
-        vlSelf->adder__DOT___09_ = vlSelf->scan_in;
-        vlSelf->adder__DOT___08_ = (1U & (IData)(vlSelf->adder__DOT__x_out));
-        vlSelf->adder__DOT___07_ = (1U & ((IData)(vlSelf->adder__DOT__x_out) 
-                                          >> 1U));
-        vlSelf->adder__DOT___17_ = (1U & ((IData)(vlSelf->adder__DOT__x_out) 
-                                          >> 3U));
-        vlSelf->adder__DOT___06_ = (1U & ((IData)(vlSelf->adder__DOT__x_out) 
-                                          >> 2U));
+        vlSelf->hidden_fsm__DOT___02_ = vlSelf->scan_in;
+        vlSelf->hidden_fsm__DOT___01_ = vlSelf->hidden_fsm__DOT__cur_state__05b0__05d;
+        vlSelf->hidden_fsm__DOT___00_ = vlSelf->hidden_fsm__DOT__cur_state__05b1__05d;
     } else {
-        vlSelf->adder__DOT___12_ = (1U & (IData)(vlSelf->b_in));
-        vlSelf->adder__DOT___05_ = (1U & ((IData)(vlSelf->b_in) 
-                                          >> 3U));
-        vlSelf->adder__DOT___13_ = (1U & ((IData)(vlSelf->a_in) 
-                                          >> 3U));
-        vlSelf->adder__DOT___16_ = (1U & (IData)(vlSelf->a_in));
-        vlSelf->adder__DOT___10_ = (1U & ((IData)(vlSelf->b_in) 
-                                          >> 2U));
-        vlSelf->adder__DOT___14_ = (1U & ((IData)(vlSelf->a_in) 
-                                          >> 2U));
-        vlSelf->adder__DOT___11_ = (1U & ((IData)(vlSelf->b_in) 
-                                          >> 1U));
-        vlSelf->adder__DOT___15_ = (1U & ((IData)(vlSelf->a_in) 
-                                          >> 1U));
-        vlSelf->adder__DOT___09_ = vlSelf->adder__DOT___00_;
-        vlSelf->adder__DOT___08_ = (1U & (IData)(vlSelf->adder__DOT___01_));
-        vlSelf->adder__DOT___07_ = (1U & (IData)(vlSelf->adder__DOT___02_));
-        vlSelf->adder__DOT___17_ = (1U & (IData)(vlSelf->adder__DOT___04_));
-        vlSelf->adder__DOT___06_ = (1U & (IData)(vlSelf->adder__DOT___03_));
+        vlSelf->hidden_fsm__DOT___02_ = vlSelf->hidden_fsm__DOT___07_;
+        vlSelf->hidden_fsm__DOT___01_ = vlSelf->hidden_fsm__DOT___08_;
+        vlSelf->hidden_fsm__DOT___00_ = vlSelf->hidden_fsm__DOT___09_;
     }
 }
 
@@ -308,7 +358,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__ico(vlSelf);
 #endif
-            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/adder/adder_out.sv", 5, "", "Input combinational region did not converge.");
+            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/hidden_fsm/hidden_fsm_out.sv", 5, "", "Input combinational region did not converge.");
         }
         __VicoIterCount = ((IData)(1U) + __VicoIterCount);
         __VicoContinue = 0U;
@@ -324,7 +374,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__nba(vlSelf);
 #endif
-            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/adder/adder_out.sv", 5, "", "NBA region did not converge.");
+            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/hidden_fsm/hidden_fsm_out.sv", 5, "", "NBA region did not converge.");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         __VnbaContinue = 0U;
@@ -335,7 +385,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vtop___024root___dump_triggers__act(vlSelf);
 #endif
-                VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/adder/adder_out.sv", 5, "", "Active region did not converge.");
+                VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/hidden_fsm/hidden_fsm_out.sv", 5, "", "Active region did not converge.");
             }
             vlSelf->__VactIterCount = ((IData)(1U) 
                                        + vlSelf->__VactIterCount);
@@ -356,12 +406,10 @@ void Vtop___024root___eval_debug_assertions(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_debug_assertions\n"); );
     // Body
-    if (VL_UNLIKELY((vlSelf->a_in & 0xf0U))) {
-        Verilated::overWidthError("a_in");}
-    if (VL_UNLIKELY((vlSelf->b_in & 0xf0U))) {
-        Verilated::overWidthError("b_in");}
     if (VL_UNLIKELY((vlSelf->clk & 0xfeU))) {
         Verilated::overWidthError("clk");}
+    if (VL_UNLIKELY((vlSelf->data_avail & 0xfeU))) {
+        Verilated::overWidthError("data_avail");}
     if (VL_UNLIKELY((vlSelf->scan_in & 0xfeU))) {
         Verilated::overWidthError("scan_in");}
     if (VL_UNLIKELY((vlSelf->scan_en & 0xfeU))) {
