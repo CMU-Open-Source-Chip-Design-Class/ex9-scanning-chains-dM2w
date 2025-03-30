@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1743352316" />
-    <testcase name="test_detailed_fault_analysis" classname="fault_tb" file="/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault_tb.py" lineno="17" time="0.00529170036315918" sim_time_ns="70.001" ratio_time="13228.451196395585" />
+    <property name="random_seed" value="1743359749" />
+    <testcase name="enhanced_fault_test" classname="fault_tb" file="/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault_tb.py" lineno="4" time="0.001954317092895508" sim_time_ns="50.001" ratio_time="25584.896218616566" />
   </testsuite>
 </testsuites>

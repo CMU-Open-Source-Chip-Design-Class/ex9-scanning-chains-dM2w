@@ -14,13 +14,13 @@ VL_INLINE_OPT void Vtop___024root___ico_sequent__TOP__0(Vtop___024root* vlSelf) 
     vlSelf->fault__DOT__b = vlSelf->b;
     vlSelf->fault__DOT__c = vlSelf->c;
     vlSelf->fault__DOT__d = vlSelf->d;
-    vlSelf->x = (1U & (0xd00d0000U >> (0x10U | (((IData)(vlSelf->a) 
+    vlSelf->x = (1U & (0xffffb00bU >> (0x10U | (((IData)(vlSelf->b) 
                                                  << 3U) 
-                                                | (((IData)(vlSelf->b) 
+                                                | (((IData)(vlSelf->a) 
                                                     << 2U) 
-                                                   | (((IData)(vlSelf->d) 
+                                                   | (((IData)(vlSelf->c) 
                                                        << 1U) 
-                                                      | (IData)(vlSelf->c)))))));
+                                                      | (IData)(vlSelf->d)))))));
     vlSelf->fault__DOT__x = vlSelf->x;
 }
 
@@ -126,7 +126,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__ico(vlSelf);
 #endif
-            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault5.sv", 3, "", "Input combinational region did not converge.");
+            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault4.sv", 3, "", "Input combinational region did not converge.");
         }
         __VicoIterCount = ((IData)(1U) + __VicoIterCount);
         __VicoContinue = 0U;
@@ -142,7 +142,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__nba(vlSelf);
 #endif
-            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault5.sv", 3, "", "NBA region did not converge.");
+            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault4.sv", 3, "", "NBA region did not converge.");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         __VnbaContinue = 0U;
@@ -153,7 +153,7 @@ void Vtop___024root___eval(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vtop___024root___dump_triggers__act(vlSelf);
 #endif
-                VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault5.sv", 3, "", "Active region did not converge.");
+                VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault4.sv", 3, "", "Active region did not converge.");
             }
             vlSelf->__VactIterCount = ((IData)(1U) 
                                        + vlSelf->__VactIterCount);

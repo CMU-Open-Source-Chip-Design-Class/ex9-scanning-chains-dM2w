@@ -44,7 +44,7 @@ VL_ATTR_COLD void Vtop___024root___eval_settle(Vtop___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vtop___024root___dump_triggers__stl(vlSelf);
 #endif
-            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault5.sv", 3, "", "Settle region did not converge.");
+            VL_FATAL_MT("/afs/andrew.cmu.edu/usr16/sutongy/private/18224/ex9-scanning-chains-dM2w/fault/fault4.sv", 3, "", "Settle region did not converge.");
         }
         __VstlIterCount = ((IData)(1U) + __VstlIterCount);
         __VstlContinue = 0U;

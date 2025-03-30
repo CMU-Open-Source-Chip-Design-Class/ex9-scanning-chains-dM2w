@@ -1,5 +1,5 @@
 TOPLEVEL_LANG = verilog
-VERILOG_SOURCES = $(shell pwd)/fault5.sv
+VERILOG_SOURCES = $(shell pwd)/fault4.sv
 TOPLEVEL = fault
 MODULE = fault_tb
 SIM = verilator
